@@ -1,6 +1,5 @@
 package com.fqcoder.fqrack.model;
 
-import com.fqcoder.fqopen.model.base.BaseEntity;
 import lombok.Data;
 
 import java.util.List;
@@ -11,21 +10,21 @@ import java.util.List;
  * @Description 权限表
  */
 @Data
-public class SysPermission extends BaseEntity {
+public class SysPermission  {
+    private Integer id;
 
     private Integer parentId;//父id 默认为0 一级
 
-    private String name;
+    private String name;//名字
 
-    private String href;
+    private String icon;//图标
 
-    private Integer type;
+    private String url;//链接
 
-    private String permission;
+    private Integer type;//类型
+
+    private String permission;//权限
 
     private Integer sort;//排序
-
-    private List<SysPermission> child;
-
 
 }

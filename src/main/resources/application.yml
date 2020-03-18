@@ -1,0 +1,48 @@
+#项目配置相关配置
+fqrack:
+  #名称
+  name: fqrack
+  #版本
+  version: 1.0
+
+spring:
+  profiles:
+    #环境 dev | test|prod
+    active: dev #制定配置文件
+    #服务模块
+  devtools:
+    restart: #需要实时更新的目录
+      additional-paths: resources/**,static/**,templates/**
+      enabled: true
+  mvc:
+    #静态文件
+    static-path-pattern: /static/**
+  servlet:
+    multipart:
+      max-file-size: 100MB
+  #模板引擎
+  thymeleaf:
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+    #制定编码
+    encoding: UTF-8
+    #禁用缓存
+    cache: false
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+server:
+  port: 8080
+  tomcat:
+    max-threads: 128
+    min-spare-threads: 5
+    uri-encoding: UTF-8
+    max-connections: 200000
+
+mybatis:
+  type-aliases-package: com.fqcoder.fqrack.model
+  mapper-locations: classpath:/mapper/**
+  configuration:
+    map-underscore-to-camel-case: true

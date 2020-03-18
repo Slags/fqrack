@@ -1,8 +1,9 @@
 package com.fqcoder.fqrack.model;
 
-import com.fqcoder.fqopen.model.base.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,7 +12,14 @@ import java.util.Date;
  * @Description TODO
  */
 @Data
-public class SysUser extends BaseEntity {
+public class SysUser implements Serializable {
+    private Integer id;
+
+    @JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss")
+    private Date createTime;
+
+    @JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss")
+    private Date updateTime;
 
     private String username;
 
@@ -31,5 +39,4 @@ public class SysUser extends BaseEntity {
 
     private Integer status;
 
-    private String info;
 }

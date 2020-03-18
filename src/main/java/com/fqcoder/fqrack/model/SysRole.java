@@ -1,7 +1,9 @@
 package com.fqcoder.fqrack.model;
 
-import com.fqcoder.fqopen.model.base.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+
+import java.util.Date;
 
 /**
  * @Created by FqCoder
@@ -9,7 +11,14 @@ import lombok.Data;
  * @Description 角色表
  */
 @Data
-public class SysRole extends BaseEntity {
+public class SysRole{
+    private Integer id;
+
+    @JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss")
+    private Date createTime;
+
+    @JsonFormat(pattern = "yyyy-MM-dd  HH:mm:ss")
+    private Date updateTime;
 
     private String roleName;//角色名称
 
